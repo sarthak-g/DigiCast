@@ -40,7 +40,8 @@ class Videocreate(FormView):
 
     def form_valid(self, form):
         fname = form.cleaned_data['video'].temporary_file_path()
-
+        video_title = form.cleaned_data['title']
+        video_desc = form.cleaned_data['description']
         storage = DjangoORMStorage(
             CredentialsModel, 'id', self.request.user.id, 'credential')
         credentials = storage.get()
@@ -49,8 +50,8 @@ class Videocreate(FormView):
 
         body = {
             'snippet': {
-                'title': 'My Django Youtube Video',
-                'description': 'My Django Youtube Video Description',
+                'title': video_title,        #'My Django Youtube Video',
+                'description': video_desc,    #'My Django Youtube Video Description',
                 'tags': 'django,howto,video,api',
                 'categoryId': '27'
             },
