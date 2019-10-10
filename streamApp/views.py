@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
 from django.views.generic.base import View
 
 from oauth2client.client import flow_from_clientsecrets, OAuth2WebServerFlow
@@ -34,7 +34,7 @@ def passbook(request):
     return render(request, "passbook.html")
 
 
-class Videocreate(TemplateView):
+class Videocreate(FormView):
     template_name = "videocreate.html"
     form_class = YouTubeForm
 
@@ -55,7 +55,7 @@ class Videocreate(TemplateView):
                 'categoryId': '27'
             },
             'status': {
-                'privacyStatus': 'unlisted'
+                'privacyStatus': 'public'
             }
         }
 
