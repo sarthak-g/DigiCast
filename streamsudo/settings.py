@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'ijsfxlikw2ay$1y2kj10l$#4#s9n(vjrpcr5j2m%c^pbvo6x!t'
 
 GOOGLE_OAUTH2_CLIENT_ID = '956632797584-q3j859vs6v6mom8hn43svbtq1gcqhvff.apps.googleusercontent.com'
-GOOGLE_OAUTH2_CLIENT_SECRET = 'PoCG2YtrGZZOS3IzJarObJdY'
+GOOGLE_OAUTH2_CLIENT_SECRET = 'eSJMjxaG25UWQI2AVhZMI3M2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

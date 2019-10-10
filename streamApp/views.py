@@ -14,7 +14,9 @@ from django.http import HttpResponse, HttpResponseBadRequest
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
-from .forms import YouTubeForm
+from .models import BlockChainModel
+
+from .forms import YouTubeForm, BlockChainSignUpForm
 # Create your views here.
 
 
@@ -71,7 +73,7 @@ class Videocreate(FormView):
                 )
                 insert_request.execute()
 
-        return HttpResponse('It worked!')
+        return redirect('/')
 
 
 
@@ -90,8 +92,11 @@ class AuthorizeView(View):
             flow.params['state'] = xsrfutil.generate_token(
                 settings.SECRET_KEY, request.user)
             authorize_url = flow.step1_get_authorize_url()
+
             return redirect(authorize_url)
-        return redirect('videocreate')
+        print("credential :",credential)      #credential for sign in youtube user
+
+        return redirect('blockchainsignup')
 
 
 class Oauth2CallbackView(View):
@@ -105,7 +110,8 @@ class Oauth2CallbackView(View):
         storage = DjangoORMStorage(
             CredentialsModel, 'id', request.user.id, 'credential')
         storage.put(credential)
-        return redirect('/')
+
+        return redirect('/videocreate/')
 
         def get(self, request, *args, **kwargs):
             storage = DjangoORMStorage(
@@ -117,4 +123,27 @@ class Oauth2CallbackView(View):
                     settings.SECRET_KEY, request.user)
                 authorize_url = flow.step1_get_authorize_url()
                 return redirect(authorize_url)
-            return redirect('/')
+            return redirect('/videocreate/')
+
+
+class BlockChainSignUp(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request,'blockchainsignup.html',{'form':BlockChainSignUpForm})
+    def post(self, request, *args, **kwargs):
+        p = BlockChainModel(name = request.POST['name'],email= request.POST['email'],mobile= request.POST['mobile'],blockchain_account_name= request.POST['blockchain_account_name'])
+        p.save()
+        # BlockChainModel.name = request.POST["name"
+        # BlockChainModel.save()
+
+
+        print(request.POST["name"])
+        return redirect('/')
+
+
+def myvideo(request):
+    return render(request, 'myvideo.html')
+
+
+def hotofferings(request):
+    return render(request, 'hotofferings.html')

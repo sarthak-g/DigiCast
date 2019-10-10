@@ -10,6 +10,9 @@ urlpatterns = [
     path('videocreate/',  views.Videocreate.as_view() , name="videocreate"),
     path('authorize/', views.AuthorizeView.as_view(), name='authorize'),
     path('oauth2callback/', views.Oauth2CallbackView.as_view(), name='oauth2callback'),
+    path('blockchainsignup/', views.BlockChainSignUp.as_view(), name='blockchainsignup'),
+    path('myvideo/', views.myvideo, name='myvideo'),
+    path('hotofferings/', views.hotofferings, name='hotofferings'),
 ]
 
 # if settings.DEBUG:

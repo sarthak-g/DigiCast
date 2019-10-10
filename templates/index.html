@@ -45,7 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
       <div class="header-top-right">
 				<div class="file">
-					<a href="#" ><img src="{% static 'images/user-images.png' %}" alt="" style="height:25px;"/></a>
+					<a href="{% url 'authorize' %}" ><img src="{% static 'images/user-images.png' %}" alt="" style="height:25px;"/></a>
 				</div>
 
 				<div class="clearfix"> </div>
@@ -80,8 +80,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<li class="active"><a href="{% url 'index' %}" class="home-icon"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
 
           <li><a href="{% url 'trending' %}" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-fire" aria-hidden="true"></span>Trending</a></li>
-
-					<li><a href="#" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-usd" aria-hidden="true"></span>Hot Offerings</a></li>
+          <li><a href="{% url 'myvideo' %}" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-facetime-video" aria-hidden="true"></span>My Videos</a></li>
+					<li><a href="{% url 'hotofferings' %}" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-usd" aria-hidden="true"></span>Hot Offerings</a></li>
 
 					<li><a href="{% url 'passbook' %}" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-book" aria-hidden="true"></span>Passbook</a></li>
           <li><a href="history.html" class="user-icon"><span class="glyphicon glyphicon-home glyphicon-wrench" aria-hidden="true"></span>Settings</a></li>
@@ -114,7 +114,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- <div class="container"> -->
     <div class="row">
       <div class="col-sm-9">
-        <iframe width="1060" height="300" src="https://www.youtube.com/embed/LNuwi1KTbMA?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="1000" height="300" src="https://www.youtube.com/embed/LNuwi1KTbMA?autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="col-sm-3">
         <img src="{% static 'images/add-small.png' %}" style="width:300px;height:300px;margin-left:60px;" alt="">

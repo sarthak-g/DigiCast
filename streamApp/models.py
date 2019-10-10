@@ -7,3 +7,9 @@ class CredentialsModel(models.Model):
     credential = CredentialsField()
     title = models.CharField(max_length=30,default='')
     description = models.CharField(max_length=30,default='')
+
+class BlockChainModel(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.CharField(max_length=30)
+    mobile = models.CharField(max_length=30)
+    blockchain_account_name = models.CharField(max_length=30)
