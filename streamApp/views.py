@@ -15,7 +15,8 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
 from .models import BlockChainModel
-
+import requests
+import json
 from .forms import YouTubeForm, BlockChainSignUpForm
 # Create your views here.
 
@@ -27,6 +28,9 @@ flow = OAuth2WebServerFlow(
     redirect_uri='http://127.0.0.1:8000/oauth2callback/')
 
 def index(request):
+    url = 'https://dry-brushlands-44237.herokuapp.com/ss'
+    r = requests.get(url)
+    print("url: ",r.text)
     return render(request, "index.html")
 
 def trending(request):
